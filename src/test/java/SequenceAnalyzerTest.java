@@ -1,13 +1,13 @@
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class MainTest {
+public class SequenceAnalyzerTest {
 
     @Test
-    void getAmountOfMonotoneDecreasingSubsequences() {
+    public void getAmountOfMonotoneDecreasingSubsequences() {
         int[][] inputData = {
                 {1},
                 {1,2},
@@ -28,11 +28,10 @@ class MainTest {
         int[] expectedResults = { 0, 0, 1, 0, 0, 1, 3, 6, 3, 1, 1, 0, 1 };
 
         for(int i = 0; i < expectedResults.length; i++) {
-            int actual = Main.getAmountOfMonotoneDecreasingSubsequences(inputData[i]);
+            int actual = SequenceAnalyzer.getAmountOfMonotoneDecreasingSubsequences(inputData[i]);
 
             System.out.println(Arrays.toString(inputData[i]));
-            System.out.printf("expected value: %d    actual value: %d\n" ,expectedResults[i], actual);
-            System.out.println();
+            System.out.printf("expected value: %d    actual value: %d\n\n" ,expectedResults[i], actual);
 
             assertEquals(expectedResults[i], actual);
         }

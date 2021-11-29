@@ -1,44 +1,26 @@
-import java.sql.SQLOutput;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Locale.setDefault(Locale.ROOT);
 
+        String massage = "Enter your sequence. ";
+        int[] seq = getIntArrFromConsole(massage);
+
+        int amount = SequenceAnalyzer.getAmountOfMonotoneDecreasingSubsequences(seq);
+
+        System.out.printf("amount: %d", amount);
     }
 
 
-    public static int getAmountOfMonotoneDecreasingSubsequences (int[] sequence) {
-        int amountOfMonotoneDecreasingSubsequences = 0;
-        boolean isPrevDecreasing = false;
-
-
-        for (int i = 1; i < sequence.length; i++) {
-
-            if (sequence[i] < sequence[i - 1] && !isPrevDecreasing) {
-                amountOfMonotoneDecreasingSubsequences++;
-                isPrevDecreasing = true;
-            } else if (sequence[i] < sequence[i - 1] && isPrevDecreasing) {
-                continue;
-            } else {
-                isPrevDecreasing = false;
-            }
-
-        }
-
-        return amountOfMonotoneDecreasingSubsequences;
-    }
-
-    public static boolean isSecondSmaller (int a, int b) {
-        return b < a;
-    }
 
     public static int[] getIntArrFromConsole(String massage) {
         Scanner in = new Scanner(System.in);
         ArrayList<Integer> arr = new ArrayList<>();
 
-        System.out.println(massage + " To stop entering enter not an integer");
+        System.out.println(massage + " To stop entering enter not an integer\n");
 
         while (in.hasNextInt()) {
             arr.add(in.nextInt());
