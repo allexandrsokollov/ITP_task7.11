@@ -1,3 +1,5 @@
+package cs.vsu.sokolov;
+
 public class SequenceAnalyzer {
 
     public static int getAmountOfMonotoneDecreasingSubsequences (int[] sequence) {
