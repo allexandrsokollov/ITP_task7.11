@@ -12,6 +12,7 @@ public class SequenceAnalyzer {
             if (sequence[i] < sequence[i - 1] && !isPrevDecreasing) {
                 amountOfMonotoneDecreasingSubsequences++;
                 isPrevDecreasing = true;
+
             } else if (!(sequence[i] < sequence[i - 1])) {
                 isPrevDecreasing = false;
             }
